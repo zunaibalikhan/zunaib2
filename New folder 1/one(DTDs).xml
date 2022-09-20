@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding = "iso-8859-1"?>
+<!DOCTYPE BOOK[
+<!ELEMENT Book   (Title , Author , Theme , Publisher , ISBN , Price , Edition)>
+<!ELEMENT Author     (#PCDATA)>
+<!ELEMENT Theme      (#PCDATA)>
+<!ELEMENT Publisher  (#PCDATA)>
+<!ELEMENT ISBN       (#PCDATA)>
+<!ELEMENT Price      (#PCDATA)>
+<!ELEMENT Edition    (#PCDATA)>
+<!ATTLIST Book Type BDATA "Fairy Tales">
+]
+<Book_DATA>
+<BOOK_1>
+<Title>Little Red Riding Hood</Title>
+<Author>Jacob and Wilhelm Grimm</Author>
+<Theme>phylosophy</Theme>
+<Publisher>abc</Publisher>
+<ISBN>1234</ISBN>
+<Price><Price>
+<Edition></Edition>
+</BOOK_1>
+
+<BOOK_2>
+<Title>The Gingerbread Man</Title>
+<Author>Charles Perrault</Author>
+<Theme></Theme>
+<Publisher>abc</Publisher>
+<ISBN></ISBN>
+<Price><Price>
+<Edition></Edition>
+</BOOK_2>
+
+<BOOK_3>
+<Title>The Ugly Duckling</Title>
+<Author>Marie-Catherine d'Aulnoy</Author>
+<Theme></Theme>
+<Publisher>abc</Publisher>
+<ISBN></ISBN>
+<Price><Price>
+<Edition></Edition>
+</BOOK_3>
+
+<?Book_DATA>

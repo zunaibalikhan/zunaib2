@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<Typeofflowers category="Flowers">
+<FlowerOne>
+<Name>Sun Flower</Name>
+<Price>$2</Price>
+<Description>Yellow in color</Description>
+<Number>600</Number>
+
+<Name>Sun Flower 2</Name>
+<Price>$3</Price>
+<Description>Yellow in color</Description>
+<Number>600</Number>
+
+</FlowerOne>
+
+<FlowerTwo>
+<Name>Rose</Name>
+<Price>$1</Price>
+<Description>Red in color</Description>
+<Number>700</Number>
+
+
+<Name>Rose 2</Name>
+<Price>$5</Price>
+<Description>Red in color</Description>
+<Number>800</Number>
+</FlowerTwo>
+</Typeofflowers>

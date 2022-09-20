@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+    <div>
+        <input type="text" id="num1">
+    </div>
+    <div>
+        <input type="button" value="1"onclick="btnNum('1')">
+    
+        <input type="button" value="2"onclick="btnNum('2')">
+        <input type="button" value="3"onclick="btnNum('3')">
+        
+        <input type="button" value="+"onclick="btnNum('+')">
+
+        <input type="button" value="="onclick="solve('=')">
+        <input type="button" value="c"onclick="CLR()  ">
+      
+
+    </div>
+    <script>
+        function btnNum(params){
+            document.getElementById("num1").value;
+            let y =eval(x)
+            document.getElementById("num1").value=y;
+        }
+        function solve(){
+            debugger
+            let x = document.getElementById("num1").value
+            let y =eval(x)
+            document.getElementById("num1").value=y
+        }
+        function clr(){
+           document.getElementById("num1").value=""
+        }
+    </script>
+</body>
+</html>

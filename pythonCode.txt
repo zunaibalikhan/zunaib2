@@ -1,0 +1,87 @@
+from tkinter import *
+from tkinter import ttk, messagebox
+
+# tkinter screen/window
+screen = Tk()
+
+# set height and width of screen
+screen.geometry("400x500")
+# to resize the screen
+screen.resizable(False, False)
+screen.title("Vaccination Certificate")
+screen.configure(background="#24025c")
+
+# form
+def check_info():
+    flag = True
+    if cnic.get() == "" and name.get() == "" and date.get() == "":
+        messagebox.showerror("Error", "Please Enter all Data")
+        flag = False
+    if choice.get() != "m" and choice.get() != "f":
+        messagebox.showerror("Error","Please Select a Gender")
+        flag= False
+    if drop.get() == "Select a District":
+        messagebox.showerror("Error", "Please Select a District")
+        flag = False
+    if drop2.get() == "Select a Vaccine":
+        messagebox.showerror("Error", "Please Select a Vaccine")
+        flag = False
+    if check.get() == 0:
+        messagebox.showerror("Error", "Please Select the terms & Conditions")
+        flag = False
+    if flag == True:
+        messagebox.showinfo("Vaccine Certificate","Your Certificate will be released Soon")
+
+
+
+gen = [
+    ("Male","m"),
+    ("Female","f")
+]
+dist = [
+    "Central",
+    "North",
+    "East",
+    "South",
+    "West"
+]
+vaccine = [
+    "Sinopharm",
+    "Sinovac",
+    "CanSino-Bio",
+    "Sputnik"
+]
+#Variables
+cnic = StringVar()
+name = StringVar()
+date = StringVar()
+drop = StringVar()
+drop.set("Select District")
+drop2 = StringVar()
+drop2.set("Select Vaccine")
+choice = StringVar()
+choice.set(value=" ")
+check = IntVar()
+check.set(0)
+
+Label(screen, text="CNIC ", font=("", 14), bg="#24025c", fg="#FFFFFF").place(x=0, y=40)
+Entry(screen, width=50).place(x=80, y=45)
+Label(screen, text="Name ", font=("", 14), bg="#24025c", fg="#FFFFFF").place(x=0, y=80)
+Entry(screen, width=50).place(x=80, y=85)
+Label(screen, text="Vaccine Date ", font=("", 14), bg="#24025c", fg="#FFFFFF").place(x=0, y=120)
+Entry(screen, width=40).place(x=140, y=130)
+Label(screen, text="Gender ", font=("", 14), bg="#24025c", fg="#FFFFFF").place(x=0, y=160)
+dis = 100
+for i in gen:
+    Radiobutton(screen,text=i[0],value=i[1],variable=choice, bg="#24025c", fg="#FFFFFF").place(x=dis,y= 180)
+    dis += 60
+Label(screen, text="District ", font=("", 14), bg="#24025c", fg="#FFFFFF").place(x=0, y=200)
+#dropDown
+ttk.Combobox(screen,textvariable=drop,values=dist).place(x=120,y=200)
+Label(screen, text="Vaccine Name ", font=("", 14), bg="#24025c", fg="#FFFFFF").place(x=0, y=240)
+#dropDown
+ttk.Combobox(screen,textvariable=drop2,values=vaccine).place(x=170,y=252)
+Button(screen, text="Save", width=15, font=("", 12),command=check_info()).place(x=140, y=340)
+
+# to hold the screen
+screen.mainloop()

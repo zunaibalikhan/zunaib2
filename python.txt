@@ -1,0 +1,203 @@
+# def percentage_calulator():
+#     engmarks = float(englishmarks.get())
+#     Urdumarks = float(urdumarks.get())
+#     Mathmarks = float(mathmarks.get())
+#     Sciencemarks = float(sciencemarks.get())
+#     Pstmarks = float(pstmarks.get())
+#     Grade = ""
+#     if engmarks >= 100 or Urdumarks >= 100 or Mathmarks >= 100 or Sciencemarks >= 100 or Pstmarks >= 100:
+#         messagebox.showerror("Error", "Marks is less than 100")
+#     else:
+#         Total = engmarks + Urdumarks + Mathmarks + Sciencemarks + Pstmarks
+#         total.set(Total)
+#         Percentage = (Total * 100) / 500
+#
+#         if Percentage >= 80:
+#             Grade = "A+"
+#         elif Percentage >= 70 and Percentage <= 80:
+#             Grade = "A"
+#         elif Percentage >= 60 and Percentage <= 70:
+#             Grade = "B"
+#         elif Percentage >= 50 and Percentage <= 60:
+#             Grade = "C"
+#         elif Percentage >= 40 and Percentage <= 50:
+#             Grade = "D"
+#         else:
+#             Grade = "Fail"
+#         percentage.set(str(Percentage) + "%" + "Grade: " +Grade)
+#
+# englishmarks = StringVar()
+# urdumarks = StringVar()
+# mathmarks = StringVar()
+# sciencemarks = StringVar()
+# pstmarks = StringVar()
+# total = StringVar()
+# percentage = StringVar()
+#
+#
+# Label(screen,text="Mark Sheet Calculator",font=("",18,"bold"),fg="#ffffff",bg="#000000").place(x=100,y=5)
+#
+#
+# Label(screen,text="Enter English marks:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=40)
+# Entry(screen,width="40",textvariable=englishmarks ).place(x=220,y=46)
+#
+# Label(screen,text="Enter Urdu marks:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=80)
+# Entry(screen,width="40",textvariable=urdumarks ).place(x=220,y=86)
+#
+# Label(screen,text="Enter Math marks:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=120)
+# Entry(screen,width="40",textvariable=mathmarks ).place(x=220,y=125)
+#
+# Label(screen,text="Enter Science marks:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=160)
+# Entry(screen,width="38",textvariable=sciencemarks ).place(x=230,y=165)
+#
+# Label(screen,text="Enter PST marks:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=200)
+# Entry(screen,width="40",textvariable=pstmarks ).place(x=220,y=205)
+#
+# Label(screen,text="Your Total:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=240)
+# Entry(screen,width="40",textvariable=total ,state=DISABLED).place(x=220,y=245)
+#
+# Label(screen,text="Your Percentage:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=280)
+# Entry(screen,width="40",state=DISABLED,textvariable= percentage).place(x=220,y=285)
+#
+# Button(screen,text="Calculate",width=20,command=percentage_calulator).place(x=150,y=350)
+
+
+def percentage_calulator():
+    Fullname = fullname.get()
+    Ticket = int(ticket.get())
+    enclouser = opt.get()
+
+    if enclouser == "wasimakram":
+        bill = Ticket * 250
+    elif enclouser == "imrankhan":
+        bill = Ticket * 500
+    elif enclouser == "maidkhan":
+        bill = Ticket * 550
+    elif enclouser == "javedmiadad":
+        bill = Ticket * 750
+    elif enclouser == "waseembari":
+        bill = Ticket * 1500
+    messagebox.showinfo("Bill",str(Fullname) + " " + "Your Bill Is." + str(bill))
+
+fullname = StringVar()
+ticket = StringVar()
+opt = StringVar()
+opt.set(value=" ")
+
+Enclouser = [
+    ("Wasim Akram" , "wasimakram"),
+    ("Imran Khan" , "imrankhan"),
+    ("Maid Khan" , "maidkhan"),
+    ("Javed Maidad" , "javedmiadad"),
+    ("Waseem Bari" , "waseembari")
+]
+
+
+Label(screen,text="Match Ticket Booking",font=("",18,"bold"),fg="#ffffff",bg="#000000").place(x=100,y=5)
+
+
+Label(screen,text="Full Name :",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=40)
+Entry(screen,width="40",textvariable=fullname ).place(x=220,y=46)
+
+Label(screen,text="How many ticket do you want:",font=("",15),fg="#ffffff",bg="#000000").place(x=35,y=80)
+Entry(screen,width="25",textvariable=ticket ).place(x=310,y=86)
+yaxis = 120
+for a in Enclouser:
+    Radiobutton(screen,text=a[0],value=a[1],variable=opt).place(x=35 , y=yaxis)
+    yaxis+=40
+
+Button(screen,text="Calculate",width=20,command=percentage_calulator).place(x=150,y=350)
+
+
+//
+from tkinter import *
+from tkinter import messagebox
+from tkinter import ttk
+screen = Tk()
+screen.geometry("450x450")
+screen.resizable(FALSE,FALSE)
+screen.configure(background="#FFFFFF")
+screen.title("Form")
+
+def check_info():
+    flag = True
+    if cnic.get() == "" and name.get() == "" and date.get() == "":
+        messagebox.showerror("Error", "Please Enter all Data")
+        flag = False
+    if choice.get() != "m" and choice.get() != "f":
+        messagebox.showerror("Error","Please Select a Gender")
+        flag= False
+    if drop.get() == "Select a District":
+        messagebox.showerror("Error", "Please Select a District")
+        flag = False
+    if drop2.get() == "Select a Vaccine":
+        messagebox.showerror("Error", "Please Select a Vaccine")
+        flag = False
+    if check.get() == 0:
+        messagebox.showerror("Error", "Please Select the terms & Conditions")
+        flag = False
+    if flag == True:
+        messagebox.showinfo("Vaccine Certificate","Your Certificate will be released Soon")
+
+
+
+#Variables
+cnic = StringVar()
+name = StringVar()
+date = StringVar()
+drop = StringVar()
+drop.set("Select a District")
+drop2 = StringVar()
+drop2.set("Select a Vaccine")
+choice = StringVar()
+choice.set(value=" ")
+check = IntVar()
+check.set(0)
+gen = [
+    ("M","m"),
+    ("F","f")
+]
+dist = [
+    "Central",
+    "North",
+    "East",
+    "South",
+    "West"
+]
+vac = [
+    "Sinopharm",
+    "Sinovac",
+    "CanSino-Bio",
+    "Sputnik"
+]
+
+Label(screen,text="Vaccine Certificate",font=("Verdana",16,"bold","underline"),bg="#FFFFFF").pack()
+Label(screen,text="CNIC:",font=("Verdana",12),bg="#FFFFFF").place(x=40,y=55)
+Entry(screen,width=50,bg="#E5E4E2",textvariable=cnic).place(x=110,y=57)
+Label(screen,text="Name:",font=("Verdana",12),bg="#FFFFFF").place(x=40,y=100)
+Entry(screen,width=50,bg="#E5E4E2",textvariable=name).place(x=110,y=103)
+Label(screen,text="(As Per CNIC)",font=("Verdana",8),bg="#FFFFFF").place(x=190,y=120)
+Label(screen,text="Vaccine Date:",font=("Verdana",12),bg="#FFFFFF").place(x=40,y=140)
+Entry(screen,width=40,bg="#E5E4E2",textvariable=date).place(x=170,y=143)
+Label(screen,text="Gender:",font=("Verdana",12),bg="#FFFFFF").place(x=40,y=180)
+dis = 120
+for i in gen:
+    Radiobutton(screen,text=i[0],value=i[1],variable=choice).place(x=dis,y= 180)
+    dis += 60
+Label(screen,text="District:",font=("Verdana",12),bg="#FFFFFF").place(x=40,y=220)
+#dropDown
+ttk.Combobox(screen,textvariable=drop,values=dist).place(x=120,y=222)
+Label(screen,text="Vaccine Name:",font=("Verdana",12),bg="#FFFFFF").place(x=40,y=250)
+#dropDown
+ttk.Combobox(screen,textvariable=drop2,values=vac).place(x=170,y=252)
+
+#checkBox
+Checkbutton(screen,text="I agree with terms & conditions",variable=check).place(x=40,y=290)
+Button(screen,text="Save Info",background="#000000",fg="#FFFFFF",font=("Verdana", 13),activebackground="#FFFFFF",activeforeground="#000000",command=check_info).place(x=170,y=340)
+
+
+
+screen.mainloop()
+
+
+
